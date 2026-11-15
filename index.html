@@ -49,6 +49,22 @@
   figure.work.big { grid-template-columns:1fr; }
   .frame { position:relative; border:1px solid var(--fg); padding:6px; box-shadow:0 0 0 3px var(--bg), 0 0 0 4px var(--dim); background:rgba(0,0,0,.35); min-height:120px; }
   .frame img { display:block; width:100%; height:auto; }
+  .t-arrow { display:block; width:max-content; margin:0 auto 18px; text-align:center; color:var(--dim); text-decoration:none; line-height:1.1; font-size:.85rem; }
+  .t-arrow b { display:block; font-weight:normal; animation:tbob 1.6s ease-in-out infinite; color:var(--fg); }
+  .t-arrow:hover, .t-arrow:focus-visible { color:var(--hi); }
+  @keyframes tbob { 50% { transform:translateY(4px); } }
+  @media (prefers-reduced-motion: reduce) { .t-arrow b { animation:none; } }
+  #topicnav { position:fixed; right:8px; top:50%; transform:translateY(-50%); z-index:5; display:flex; flex-direction:column; gap:4px; padding:6px; background:rgba(11,13,12,.88); border:1px solid var(--dim); }
+  #topicnav .lbl { color:var(--dim); font-size:.7rem; text-align:center; }
+  #topicnav button { font:inherit; font-size:.8rem; color:var(--fg); background:transparent; border:1px solid var(--dim); padding:2px 8px; cursor:pointer; min-width:34px; }
+  #topicnav button:hover, #topicnav button:focus-visible, #topicnav button.on { background:var(--fg); color:var(--bg); }
+  @media (max-width:900px) { #topicnav { top:auto; bottom:8px; right:8px; left:8px; transform:none; flex-direction:row; flex-wrap:wrap; justify-content:center; } #topicnav .lbl { display:none; } }
+  .frame.audio { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:16px; min-height:0; }
+  .frame.audio .play { font:inherit; color:var(--fg); background:transparent; border:1px solid var(--fg); padding:8px 14px; cursor:pointer; }
+  .frame.audio .play:hover, .frame.audio .play:focus-visible { background:var(--fg); color:var(--bg); }
+  .frame.audio .bar { flex:1 1 140px; height:10px; border:1px solid var(--dim); cursor:pointer; }
+  .frame.audio .bar i { display:block; height:100%; width:0; background:var(--fg); }
+  .frame.audio .time { color:var(--dim); font-size:.9rem; }
   .frame.empty { aspect-ratio:4/3; display:grid; place-items:center; }
   .frame.empty.wide { aspect-ratio:16/9; }
   .frame.empty img { display:none; }
@@ -70,6 +86,7 @@
   .mm-detail { border:1px solid var(--c, var(--dim)); border-left-width:6px; padding:10px 14px; background:rgba(0,0,0,.35); min-height:7em; }
   .mm-detail h4 { margin:0 0 6px; color:var(--hi); font-weight:normal; }
   figure.art { margin:0 0 20px; max-width:680px; }
+  ul.refs li { padding:3px 0 3px 2em; text-indent:-2em; font-size:.9rem; line-height:1.45; color:var(--dim); }
   .hs-wrap { position:relative; }
   .hs { position:absolute; transform:translate(-50%,-50%); font:inherit; font-size:clamp(11px,2vw,15px); line-height:1; padding:4px 5px; margin:0; cursor:pointer;
     background:var(--bg); color:var(--c); border:1px solid var(--c); box-shadow:0 0 8px var(--c); }
@@ -120,7 +137,9 @@
     <div class="frame multi"><img src="img/feel-1.jpg" alt="Pastel drawing of a swirling blue, orange and green oval" loading="lazy"><img src="img/feel-2.jpg" alt="Pastel drawing: deep blue fading to light blue and yellow" loading="lazy"></div>
     <figcaption>
       <b>Drawing how we feel</b> <span class="topic">topic 1</span>
-      <p><b>Format and modality:</b> pastel drawings on paper (visual arts, 2D). I listened to music and drew how it made me feel, using colour and line instead of objects. In the first drawing, blue, orange and green swirl around an oval. In the second, deep blue fades into light blue and yellow. [add: the piece of music, and what each colour meant to you]</p>
+      <p><b>Format and modality:</b> Two pastel drawings on paper (visual arts, 2D). In both, I used colour and line instead of objects to show a feeling.</p>
+      <p>The first drawing is about how I feel and how excited I am for my arts education university course. Blue, orange and green swirl around an oval.</p>
+      <p>The second drawing came from listening to music. The song sounded like falling through a deep ocean that got heavier as it went on. The light blue and yellow sit at the top of the page, and the colour gets darker as it moves down into deep blue.</p>
       <p class="theory">theory: Dinham (2023, p. 383-384) describes expressionism as using colour, line and distortion to carry emotion, and lists drawing or painting a response to music as a classroom starting point. I would use this with students who find it hard to talk about feelings, because the drawing lets them show it first.</p>
     </figcaption>
   </figure>
@@ -128,23 +147,23 @@
     <div class="frame"><img src="img/print-1.jpg" alt="Blue paint strokes from dark to light, arranged symmetrically" loading="lazy"></div>
     <figcaption>
       <b>Printmaking</b> <span class="topic">topic 2</span>
-      <p><b>Format and modality:</b> blue paint on paper, arranged symmetrically in strokes from dark to light (visual arts, [printmaking / painting: confirm]). [add: the technique and tools you used, and how the idea came about]</p>
-      <p class="theory">theory: The pattern lesson in Dinham (2023, p. 177-180) varies tools and processes, such as rubbings, printing and painting, and builds pattern from repeated shapes and lines. My piece uses repetition and symmetry in the same way. For Topic 2, Smilan (2017) and Dinham (p. 50) both warn against copying a style without learning the artist and culture behind it, so I would teach the context first.</p>
+      <p><b>Format and modality:</b> blue paint on paper, arranged symmetrically in strokes from dark to light (visual arts, printmaking). I made a symmetrical stencil by cutting paper and pressed a sponge with blue paint to make the pattern. I wanted to experiment with a gradient of colour that fades on either side of the centre.</p>
+      <p class="theory">theory: Smilan (2017) says visual art works as a language that can support students learning English and build a sense of belonging. It also warns that "multicultural" art lessons often become shallow craft projects. My piece uses repetition and symmetry to make pattern, but if I linked this kind of task to Aboriginal art in class, I would teach the artist and culture first and invite students to share their own knowledge.</p>
     </figcaption>
   </figure>
   <figure class="work">
     <div class="frame multi"><img src="img/gallery-1.jpg" alt="Laminated sheet of Curiosity prompt cards for looking at art" loading="lazy"><img src="img/gallery-2.jpg" alt="Gallery installation: an upside-down tree over a pile of ceramic leaves" loading="lazy"></div>
     <figcaption>
       <b>Gallery</b> <span class="topic">topic 3</span>
-      <p><b>Format and modality:</b> a gallery visit (visual arts, responding). The first image is a laminated sheet of Curiosity prompt cards for looking at art. The second is an installation of an upside-down tree over a pile of ceramic leaves. [add: the gallery, the artist, and what you noticed]</p>
-      <p class="theory">theory: Dinham (2023, p. 126 and 392) describes guided viewing as a series of questions that move from describing the work, to its formal qualities and context, to a personal response and a judgement. The prompt cards work the same way. I would also always give students the artist's name, the title and some context (p. 389).</p>
+      <p><b>Format and modality:</b> A self-guided tour of the Art Gallery of South Australia (visual arts, responding). Each of us picked one Curiosity Card to work from. The cards are 52 prompts for "long looking" that give students another way into an artwork (Art Gallery of South Australia [AGSA], n.d.). The first image is the sheet of prompt cards. The second is an installation of an upside-down tree over a pile of crafted leaves. I chose card 52, "Go back to the work of art you first looked at today. What do you notice now that you didn't before?", and used it on the tree. At first I saw an upside-down tree over a pile of leaves. When I went back, I noticed the shadows of the branches on the floor, so the shadows became part of the work too.</p>
+      <p class="theory">theory: AGSA (n.d.) designed the cards to encourage critical and creative thinking and "long looking", and for students to explore the gallery independently. It suggests allowing silent looking before responses, then sharing ideas as a group, and recording responses on a clipboard or in a "looking log". In my own teaching I would trial the cards on works from the gallery's online collection before the visit and plan the route. Dinham (2023, p. 126 and 392) describes guided viewing as a series of questions that move from describing the work, to its formal qualities and context, to a personal response and a judgement. The cards work in a similar way, but they let students explore on their own. Dinham also says students should always be given the artist's name, the title and some context (p. 389).</p>
     </figcaption>
   </figure>
   <figure class="work">
-    <div class="frame multi"><img src="img/sculpt-1.jpg" alt="Cardboard and paper sculpture: green corrugated discs on a twig, next to a paper tree" loading="lazy"><img src="img/soap-1.jpg" alt="Face carved into a bar of soap" loading="lazy"><img src="img/soap-2.jpg" alt="Carved soap face, lit from behind" loading="lazy"></div>
+    <div class="frame multi"><img src="img/sculpt-1.jpg" alt="Cardboard and paper sculpture: green corrugated discs on a twig, next to a paper tree" loading="lazy"><img src="img/soap-1.jpg" alt="Face carved into a bar of soap" loading="lazy"><img src="img/soap-2.jpg" alt="Carved soap face with the shadow of a hand across one side" loading="lazy"></div>
     <figcaption>
       <b>Sculpture: cardboard and soap carving</b> <span class="topic">topic 4</span>
-      <p><b>Format and modality:</b> sculpture in cardboard, paper and soap (visual arts, 3D). The cardboard piece has green corrugated discs on a twig next to a paper tree. The soap piece is a face carved into a bar and lit from behind. [add: how each idea came about, and the tools you used]</p>
+      <p><b>Format and modality:</b> sculpture in cardboard, paper and soap (visual arts, 3D). The cardboard piece was inspired by a eucalyptus branch. I cut the cardboard with scissors. The soap piece is a face carved into a bar of soap with a spoon. I wanted to make something that changes depending on the lighting it is viewed in, so in the last photo I used my hand to cast a shadow over one part of the face.</p>
       <p class="theory">theory: Dinham (2023, p. 387-388) says working in 3D invites students to explore space and form, using cheap, low-tech materials such as cardboard and found objects. It also says materials carry meaning (p. 386). In class I would use recycled cardboard and ask students why they chose their material.</p>
     </figcaption>
   </figure>
@@ -152,8 +171,8 @@
     <div class="frame"><img src="img/identity-1.jpg" alt="Felt, pipe-cleaner and clay carrot figure with a note: "I haven't got the words"" loading="lazy"></div>
     <figcaption>
       <b>3D object that represents identity</b> <span class="topic">topic 5</span>
-      <p><b>Format and modality:</b> a figure made from felt, pipe cleaner and clay, in the shape of a carrot, with a note that says "I haven't got the words" (visual arts, mixed-media 3D). [add: what the carrot, each material and the note stand for]</p>
-      <p class="theory">theory: Dinham (2023, p. 89) says the arts let students explore who they are by building a personal representation from significant images and objects. Metaphor lets students approach personal ideas indirectly and safely (p. 103-104). Vahter (2012) says an art classroom should balance making with responding, so I would end this task with students explaining what their object stands for.</p>
+      <p><b>Format and modality:</b> a figure made from felt, pipe cleaner and clay, in the shape of a carrot, with a note that says "I haven't got the words" (visual arts, mixed-media 3D). The task called to make something that represents an aspect of you. I didn't really know what to choose so I just started making something and it ended up being a great representation of my life so far: random and fun.</p>
+      <p class="theory">theory: Vahter (2012) reports on action research in primary art classes and finds that balancing creating and responding is central to planning art learning. In this task, making the object was the creating. I would add the responding by ending the lesson with students explaining what their object stands for, through conversation and reflection.</p>
     </figcaption>
   </figure>
 
@@ -163,22 +182,22 @@
     <figcaption>
       <b>Collage: album cover</b> <span class="topic">topic 6</span>
       <p><b>Format and modality:</b> paper collage on dark card (media arts, print media). It is black and white with one red cut-out title, SPORTS COACH. I used a skier, a volleyball and torn newsprint. The red title is the only colour, so it is the first thing a viewer reads. The Media Arts artefact page breaks this piece down in full.</p>
-      <p class="theory">theory: Dinham (2023, p. 308 and 310) lists alignment, repetition and consistency, balance, unity, contrast and white space as the principles of layout, and says a cover should signal what is inside through its image, colour and layout.</p>
+      <p class="theory">theory: Conlon Perugini (2015) used a picture-book cover to start a discussion, asking students what they could see, which colours the illustrator used and where the character lived. Students then redesigned the cover for a different country, which built intercultural competence. My cover works the same way: the viewer reads the image, colour and title first and forms expectations from them. In class, students could redesign an album cover for a different culture, after researching it.</p>
     </figcaption>
   </figure>
   <figure class="work">
     <div class="frame"><img src="img/story-1.jpg" alt="Four comic panels with dotted figures and coloured ribbons of path" loading="lazy"></div>
     <figcaption>
       <b>Pictorial stories</b> <span class="topic">topic 7</span>
-      <p><b>Format and modality:</b> a four-panel comic (media arts, pictorial story). The figures are dots and the path is shown as coloured ribbons. [add: what the story is about, and why you used dots and ribbons instead of drawn characters]</p>
-      <p class="theory">theory: Dinham (2023, p. 297-298) says comics have their own codes and conventions, such as word balloons and symbols for emotion, and that the link between image and text builds literacy. My comic uses symbols in place of characters, so the reader has to interpret the meaning.</p>
+      <p><b>Format and modality:</b> a four-panel comic (media arts, pictorial story). The figures are dots and the path is shown as coloured ribbons. The idea of the piece was to demonstrate a day of my life with colours and shapes that change as the day does.</p>
+      <p class="theory">theory: Dinham (2023, p. 297-298) says comics have their own codes and conventions, such as word balloons and symbols for emotion, and that the link between image and text builds literacy. Reid and Moses (2020, p. 461-472) describe comics as multimodal texts, where readers make meaning from the words, the images and design features such as panels and gutters together, and they show students choosing each convention for a purpose instead of using it because they think they have to. My comic uses symbols in place of characters, so the reader has to interpret the meaning.</p>
     </figcaption>
   </figure>
   <figure class="work">
     <div class="frame"><img src="img/photostory-w7.jpg" alt="Photo story: collage of photos from a walk along a creek and a bridge path" loading="lazy"></div>
     <figcaption>
       <b>Photo story (week 7)</b> <span class="topic">topic 7</span>
-      <p><b>Format and modality:</b> a photo collage from a walk along a creek and a bridge path (media arts, photographic story). [add: which photos you chose as the key images, and why]</p>
+      <p><b>Format and modality:</b> Bridges: a photo collage from a walk along a creek at uni (media arts, photographic story). As I was walking along the creek I noticed how many bridges, both natural and man-made, were around the beautiful campus. Some were for humans and some were used by bugs and animals. The photo of the creek is the centre piece representing something that can be crossed by choice, whether the creek knows it or not.</p>
       <p class="theory">theory: Dinham (2023, p. 296) says photographic stories work by choosing what is significant and showing it in the layout, for example by placing the key image in the centre or making it larger than the rest.</p>
     </figcaption>
   </figure>
@@ -186,15 +205,35 @@
     <div class="frame multi"><video src="img/stopmotion-1.mp4" controls muted loop playsinline preload="metadata"></video><video src="img/stopmotion-2.mp4" controls muted loop playsinline preload="metadata"></video></div>
     <figcaption>
       <b>Stop-motion</b> <span class="topic">topic 8</span>
-      <p><b>Format and modality:</b> two stop-motion videos (media arts, audio-visual). [add: what each video shows, the materials, and how you planned it]</p>
-      <p class="theory">theory: Dinham (2023, p. 302-303) describes stop-motion as a series of still images where the movement advances a small step each frame, so it appears to move when played at speed. It suggests using animation to introduce film conventions and terminology, and a storyboard worksheet to plan the sequence (p. 299).</p>
+      <p><b>Format and modality:</b> two stop-motion videos (media arts, audio-visual). We made the characters from plasticine and used paper for the backgrounds. In one scene we used a wire to dangle a plasticine exclamation point into the shot. We took the photos on my Samsung tablet.</p>
+      <p class="theory">theory: Dinham (2023, p. 302-303) describes stop-motion as a series of still images where the movement advances a small step each frame, so it appears to move when played at speed. It suggests using animation to introduce film conventions and terminology, and a storyboard worksheet to plan the sequence (p. 299). Domke et al. (2018, p. 51) argue that films are creative works whose meaning comes from elements like camera angles, lighting, sound effects and music, and that students build critical media literacy by analysing these choices. In our stop-motion, we made those choices in the story, motion and characters. In the Pacman video, we played around with starting with something familiar then diverting the audiences expectations by having both characters melt after their altercation. We also chose to move to an arial view at the end to better show case the aftermath of their interaction.</p>
     </figcaption>
   </figure>
   <figure class="work">
-    <div class="frame empty"><span class="ph">audio coming soon</span></div>
+    <div class="frame audio">
+      <button type="button" class="play" id="rideBtn" aria-label="Play The Ride audio">[ &#9654; play ]</button>
+      <div class="bar" id="rideBar" role="progressbar" aria-label="Playback progress"><i></i></div>
+      <span class="time" id="rideTime">0:00</span>
+      <audio id="rideAudio" src="img/the-ride.mp3" preload="metadata"></audio>
+    </div>
+    <script>
+    (function(){
+      var a=document.getElementById('rideAudio'),b=document.getElementById('rideBtn'),
+          bar=document.getElementById('rideBar'),t=document.getElementById('rideTime');
+      function f(s){s=Math.floor(s||0);return Math.floor(s/60)+':'+('0'+s%60).slice(-2);}
+      function upd(){bar.firstElementChild.style.width=(a.duration?100*a.currentTime/a.duration:0)+'%';
+        t.textContent=f(a.currentTime)+(a.duration?' / '+f(a.duration):'');}
+      b.addEventListener('click',function(){a.paused?a.play():a.pause();});
+      a.addEventListener('play',function(){b.innerHTML='[ &#10073;&#10073; pause ]';});
+      a.addEventListener('pause',function(){b.innerHTML='[ &#9654; play ]';});
+      a.addEventListener('ended',function(){a.currentTime=0;upd();});
+      a.addEventListener('timeupdate',upd);a.addEventListener('loadedmetadata',upd);
+      bar.addEventListener('click',function(e){if(!a.duration)return;var r=bar.getBoundingClientRect();a.currentTime=a.duration*(e.clientX-r.left)/r.width;});
+    })();
+    </script>
     <figcaption>
-      <b>Podcast / storybook audio</b> <span class="topic">topic 9</span>
-      <p><b>Format and modality:</b> not made yet (media arts, audio). [plan: the topic, the format (interview, story or radio drama), and who it is for]</p>
+      <b>Podcast / storybook audio: "The Ride"</b> <span class="topic">topic 9</span>
+      <p><b>Format and modality:</b> an audio story (media arts, podcast). I read aloud the children's story "The Ride" (anonymous author) and added sound effects. The story is for children so I added some fun and atmospheric effects like the sound of a goat and a carriage walking along a cobbled road.</p>
       <p class="theory">theory: Dinham (2023, p. 300-301) says podcasts let students work in teams on scripts and can be used to reflect on a finished arts activity. Copyright-free "podsafe" music avoids copyright problems.</p>
     </figcaption>
   </figure>
@@ -202,12 +241,22 @@
     <div class="frame"><img src="img/game-1.jpg" alt="Scratch editor showing code blocks and a cat sprite meeting a bat underwater" loading="lazy"></div>
     <figcaption>
       <b>Gaming</b> <span class="topic">topic 10</span>
-      <p><b>Format and modality:</b> a Scratch project (media arts, interactive). The screenshot shows code blocks and a cat sprite meeting a bat underwater. [add: the objective of your game, and what choices the player makes]</p>
+      <p><b>Format and modality:</b> a Scratch project (media arts, interactive). This screenshot shows the interactive visual code I created. When the green flag is pressed, Scratch the Cat moves 1 step and says "Hello!" for 2 seconds. It wasn't a completed piece but it shows how one can create an interactive game with easy to understand "Code blocks"</p>
       <p class="theory">theory: Dinham (2023, p. 311) says every game has an objective and a story, and lists planning questions such as who it is for, the rewards, the risks and the challenges. Interactivity means the player can act on the work (p. 311-312).</p>
     </figcaption>
   </figure>
   <h3>// summary</h3>
-  <p>Draft: I believe the arts are learned by making, reflecting, and connecting to other people's work. This semester I moved between visual arts and media arts, and each piece followed the same four steps: invent an idea, make it, connect it to an artist or theory, and reflect on it (Dinham, 2023, p. 39-43). Reflecting on my own art-making also builds metacognition, which means knowing how I learn (p. 106). [edit in your own words, and add what you would teach differently]</p>
+  <p>I believe the arts are learned by viewing inspiration, making, reflecting, and connecting to other people's work. This semester we moved between visual arts and media arts, and each of these pieces went along those same steps. Reflecting on my own art-making also builds metacognition, which means knowing how I learn (p. 106).</p>
+  <h3>// references</h3>
+  <ul class="plain refs">
+    <li>Art Gallery of South Australia. (n.d.). <i>Curiosity cards</i>. https://www.agsa.sa.gov.au/education/resources-educators/resources-educators-themed/curiosity-cards/</li>
+    <li>Conlon Perugini, D. (2015). Judging a book by its cover: Developing intercultural competence through book covers. <i>Learning Languages, 20</i>(2), 19-20. https://files.eric.ed.gov/fulltext/EJ1091023.pdf</li>
+    <li>Dinham, J. (2023). <i>Delivering authentic arts education</i> (5th ed.). Cengage Learning Australia.</li>
+    <li>Domke, L. M., Weippert, T. L., &amp; Apol, L. (2018). Beyond school breaks: Reinterpreting the uses of film in classrooms. <i>The Reading Teacher, 72</i>(1), 51-59. https://doi.org/10.1002/trtr.1677</li>
+    <li>Reid, S. F., &amp; Moses, L. (2020). Students become comic book author-illustrators: Composing with words and images in a fourth-grade comics writers' workshop. <i>The Reading Teacher, 73</i>(4), 461-472. https://doi.org/10.1002/trtr.1864</li>
+    <li>Smilan, C. (2017). Visual immersion for cultural understanding and multimodal literacy. <i>Arts Education Policy Review, 118</i>(4), 220-227. https://doi.org/10.1080/10632913.2017.1287805</li>
+    <li>Vahter, E. (2012). Designing the learning process in visual art classes in primary school. <i>Procedia - Social and Behavioral Sciences, 45</i>, 147-157. https://doi.org/10.1016/j.sbspro.2012.06.551</li>
+  </ul>
   <p class="hint">add or remove frames so there is one per main activity.</p>
 </section>
 
@@ -237,14 +286,14 @@
   (() => {
     const D = {
       materials: ['Materials / Resources', ['Magazines, newspaper, scissors, glue, coloured paper and a plain A4/A3 square base', 'Canva (or similar) with an album-cover template for a digital option', 'Real album covers from different genres as examples, printed or on screen', 'Design principles poster: alignment, repetition and consistency, balance, unity, contrast, white space']],
-      outcomes: ['Learning Outcomes', ['Name the codes and conventions of a cover: title and artist placement, hierarchy, image, colour, genre cues', 'Use the design principles on purpose when making a cover', 'Explain how audience and representation shaped their choices (the five media arts concepts)', 'Achievement standard (end of Year 6): students explain how media languages and media technologies are used in media arts works they make or experience.']],
-      curriculum: ['Curriculum Links (Australian Curriculum v9, The Arts: Media Arts, Years 5-6)', [
+      outcomes: ['Learning Outcomes', ['Name the codes and conventions of a cover: title and artist placement, hierarchy, image, colour, genre cues', 'Use the design principles on purpose when making a cover', 'Explain how audience and representation shaped their choices (the five media arts concepts; Dezuanni, 2017)', 'Achievement standard (end of Year 6): students explain how media languages and media technologies are used in media arts works they make or experience.']],
+      curriculum: ['Curriculum Links (Australian Curriculum v9, The Arts: Media Arts, Years 5-6; ACARA, 2022)', [
         'AC9AMA6E01 Exploring and responding: explore how media languages and technologies are used in media arts across cultures, times and places. In the lesson: compare how covers signal a genre.',
         'AC9AMA6D01 Developing practices and skills: develop production skills to communicate ideas through images, text and media technologies. In the lesson: experiment with layout, typography and genre conventions.',
         'AC9AMA6C01 Creating and making: use media languages, technologies and production processes to make works for specific audiences. In the lesson: design a cover for a chosen audience.',
         'AC9AMA6P01 Presenting and performing: present work using responsible media practice. In the lesson: gallery walk, and acknowledging where collage images came from.',
         'Optional AC9AMA6E02: how First Nations Australians use media arts to continue and revitalise cultures. Use a cover by a First Nations artist as a case study, following cultural protocols (links to Topic 2).',
-        'Cross-curriculum: English (audience, purpose, multimodal texts), Digital Technologies (Canva). ACARA lists "media consumers and creators" as a connection across Media Arts, English and Digital Technologies.',
+        'Cross-curriculum: English (audience, purpose, multimodal texts), Digital Technologies (Canva). ACARA (n.d.) lists "media consumers and creators" as a connection across Media Arts, English and Digital Technologies.',
         'Years 3-4 version: AC9AMA4E01, AC9AMA4C01 (collage zine) and AC9AMA4P01 (layout for an audience).'
       ]],
       sequence: ['Lesson Sequence', ['Hook: cover only, no sound. Guess the genre and say what gave it away', 'Teach the principles with two real covers: what is aligned, repeated, balanced, contrasting', 'Plan a cover for a song, album or story that matters to them (thumbnail sketch)', 'Make it: collage on paper or build it in Canva', 'Gallery walk: classmates guess the genre and name one principle they can see']],
@@ -342,7 +391,14 @@
   })();
   </script>
   <h3>// design and layout choices</h3>
-  <p>Draft: The topic sits in the centre of a network, with six branches placed symmetrically around it so the map feels balanced. Every branch node is the same size and the connections are the same weight, which keeps the alignment tidy and shows that each part of the lesson matters equally. Repeating the same node shape and one colour per branch gives consistency and unity, and helps a teacher find a section quickly. Open space (white space) between the nodes lets each idea stand alone, and the lit-up branch gives contrast so the eye knows where to look. These are the same principles the lesson teaches students for cover design. [edit in your own words]</p>
+  <p>The topic sits in the centre of a network, with six branches placed symmetrically around it so the map feels balanced. Every branch node is the same size and the connections are the same weight, which keeps the alignment tidy and shows that each part of the lesson matters equally. Repeating the same node shape and one colour per branch gives consistency and unity, and helps the viewer find a section quickly. Open space (white space) between the nodes lets each idea stand alone, and the lit-up branch gives contrast so the eye knows where to look. These are the same principles the lesson teaches students for cover design (Dinham, 2023, p. 308).</p>
+  <h3>// references</h3>
+  <ul class="plain refs">
+    <li>Australian Curriculum, Assessment and Reporting Authority. (2022). <i>The Arts: Media Arts curriculum content F-6 (Version 9.0)</i> [Curriculum document]. https://www.australiancurriculum.edu.au/content/dam/en/curriculum/ac-version-9/downloads/the-arts/media-arts/the-arts-media-arts-curriculum-content-f-6-v9.docx</li>
+    <li>Dezuanni, M. (2017). Media arts. In C. Sinclair, N. Jeanneret, &amp; J. O'Toole (Eds.), <i>Education in the arts</i> (3rd ed., pp. 128-142). Oxford University Press.</li>
+    <li>Dinham, J. (2023). <i>Delivering authentic arts education</i> (5th ed.). Cengage Learning Australia.</li>
+    <li>Taylor, J. (2021). <i>4 ways to differentiate in the art classroom</i>. The Art of Education University. https://theartofeducation.edu/2021/04/4-ways-to-differentiate-in-the-art-classroom/</li>
+  </ul>
 </section>
 
 <!-- ============ 4. ARTEFACT ============ -->
@@ -360,12 +416,12 @@
   (() => {
     // x,y are percentages of the image. [title, c, x, y, [points]]
     const H = [
-      ['Hierarchy and written code', '#d42f23', 20, 86, ['The cut-out SPORTS COACH title is the only red on the page, so contrast pulls the eye there first and tells the audience what the cover is about.', 'Heavy sans-serif lettering is a convention of sports media: it reads as bold and energetic.', 'Course link: Topic 6 lecture (contrast, alignment); Dezuanni, languages, codes and conventions.']],
-      ['Focal point and balance', '#12a9cf', 50, 62, ['The volleyball is the largest, most central shape. The torn paper edges and the skier lead the eye towards it.', 'The title (bottom left) is balanced by the hands (bottom right), so the cover feels weighted evenly even though it is not symmetrical.', 'Course link: Topic 6 lecture (balance).']],
-      ['Symbolic and technical codes', '#d9ae1f', 50, 38, ['The skier is rotated upside down and overlapped onto the ball. An unusual angle signals movement, energy and risk.', 'Choosing sports images to stand for "coaching" is a symbolic code: the audience reads the meaning from the pictures, not just the words.', 'Course link: Dezuanni, representation and codes; the lesson asks students what a choice of image says about the music or story.']],
-      ['Repetition and consistency', '#22a85d', 78, 17, ['A second skier repeats the sport theme, and the long diagonal of the paper strip echoes the diagonal of the first skier.', 'Repeated subject, repeated diagonal and repeated torn edges give the cover a consistent look.', 'Course link: Topic 6 lecture (repetition and consistency).']],
+      ['Hierarchy and written code', '#d42f23', 20, 86, ['The cut-out SPORTS COACH title is the only red on the page, so contrast pulls the eye there first and tells the audience what the cover is about.', 'Heavy sans-serif lettering is a convention of sports media: it reads as bold and energetic.', 'Course link: Topic 6 lecture and Dinham (2023, p. 308) (contrast, alignment); Dezuanni (2017), languages, codes and conventions.']],
+      ['Focal point and balance', '#12a9cf', 50, 62, ['The volleyball is the largest, most central shape. The torn paper edges and the skier lead the eye towards it.', 'The title (bottom left) is balanced by the hands (bottom right), so the cover feels weighted evenly even though it is not symmetrical.', 'Course link: Topic 6 lecture and Dinham (2023, p. 308) (balance).']],
+      ['Symbolic and technical codes', '#d9ae1f', 50, 38, ['The skier is rotated upside down and overlapped onto the ball. An unusual angle signals movement, energy and risk.', 'Choosing sports images to stand for "coaching" is a symbolic code: the audience reads the meaning from the pictures, not just the words.', 'Course link: Dezuanni (2017), representation and codes; the lesson asks students what a choice of image says about the music or story.']],
+      ['Repetition and consistency', '#22a85d', 78, 17, ['A second skier repeats the sport theme, and the long diagonal of the paper strip echoes the diagonal of the first skier.', 'Repeated subject, repeated diagonal and repeated torn edges give the cover a consistent look.', 'Course link: Topic 6 lecture and Dinham (2023, p. 308) (repetition and consistency).']],
       ['Texture and print-media conventions', '#d41e86', 20, 35, ['Torn newsprint with real text fragments shows the print-media convention of layered paper, and the visible words add a written code about coaching.', 'The rough edges are a collage technique that students can try with only scissors, glue and magazines.', 'Course link: Topic 6 print-media cover design activity (Arts Live, Canva for a digital version).']],
-      ['Unity, white space and audience', '#6464e0', 10, 12, ['One cool blue-grey palette ties very different pieces together (unity). Only the title breaks it.', 'The dark areas are white space: they give the eye a place to rest and keep the layers from feeling crowded.', 'Audience and representation: the cover is aimed at coaches, players and teachers. Dezuanni\'s concepts of audience and representation ask who this is for and who is shown.']]
+      ['Unity, white space and audience', '#6464e0', 10, 12, ['One cool blue-grey palette ties very different pieces together (unity). Only the title breaks it.', 'The dark areas are white space: they give the eye a place to rest and keep the layers from feeling crowded.', 'Audience and representation: the cover is aimed at coaches, players and teachers. Dezuanni\'s (2017) concepts of audience and representation ask who this is for and who is shown.']]
     ];
     const wrap = document.getElementById('hs-wrap'), box = document.getElementById('hs-detail'), btns = [];
     function show(i) {
@@ -392,20 +448,68 @@
     <li><b>Technical codes:</b> layering and overlap, unusual angle (the upside-down skier), scale (the ball is the largest piece), a limited colour palette, bold sans-serif title.</li>
     <li><b>Symbolic codes:</b> sports images stand for coaching and movement; the single red title signals importance; the torn edges suggest energy and effort.</li>
     <li><b>Written codes:</b> the SPORTS COACH title and fragments of real newsprint text.</li>
-    <li><b>Conventions:</b> a square cover format, the title placed where it can be read first, and a main image that tells the audience the genre. [add: how a real album cover would also show an artist name]</li>
+    <li><b>Conventions:</b> a square cover format, the title placed where it can be read first, and a main image that tells the audience the genre.</li>
   </ul>
 
   <h3>// in future teaching</h3>
   <ul class="plain">
-    <li><b>Curriculum:</b> Australian Curriculum v9, The Arts: Media Arts, Years 5-6 (source: ACARA Media Arts F-6 content document). Exploring and responding <b>AC9AMA6E01</b> (how media languages and technologies are used across contexts), Developing practices and skills <b>AC9AMA6D01</b> (production skills to communicate ideas), Creating and making <b>AC9AMA6C01</b> (making works for specific audiences) and Presenting and performing <b>AC9AMA6P01</b> (responsible media practice). The cover supports the Year 6 achievement standard: explaining how media languages and technologies are used in works students make or experience.</li>
+    <li><b>Curriculum:</b> Australian Curriculum v9, The Arts: Media Arts, Years 5-6 (ACARA, 2022). Exploring and responding <b>AC9AMA6E01</b> (how media languages and technologies are used across contexts), Developing practices and skills <b>AC9AMA6D01</b> (production skills to communicate ideas), Creating and making <b>AC9AMA6C01</b> (making works for specific audiences) and Presenting and performing <b>AC9AMA6P01</b> (responsible media practice). The cover supports the Year 6 achievement standard: explaining how media languages and technologies are used in works students make or experience.</li>
     <li><b>Adapting for age and ability:</b> Years 3-4 use <b>AC9AMA4E01</b> (comparing works made for different purposes and their conventions), <b>AC9AMA4C01</b> (the curriculum's own example is a collaged zine of images, text and drawings) and <b>AC9AMA4P01</b> (laying out a print piece with audience in mind). Younger students make a collage and name two things they see; older students annotate the principles and justify choices for a chosen audience. The Canva version supports students who find cutting hard.</li>
     <li><b>Within a unit:</b> [Draft: before, a lesson on the five media arts concepts and the design principles; after, students compare covers in a gallery walk and write a short reflection. Edit to match your unit.]</li>
-    <li><b>Topics it can cover:</b> Cross-curriculum links: English (audience, purpose, multimodal texts) and Digital Technologies (Canva), which ACARA groups with Media Arts under "media consumers and creators". Optional <b>AC9AMA6E02</b> case study of a cover by a First Nations artist, with cultural protocols (links to Topic 2). Other themes: identity, culture, the sport or music a student chooses.</li>
+    <li><b>Topics it can cover:</b> Cross-curriculum links: English (audience, purpose, multimodal texts) and Digital Technologies (Canva), which ACARA (n.d.) groups with Media Arts under "media consumers and creators". Optional <b>AC9AMA6E02</b> case study of a cover by a First Nations artist, with cultural protocols (links to Topic 2). Other themes: identity, culture, the sport or music a student chooses.</li>
+  </ul>
+  <h3>// references</h3>
+  <ul class="plain refs">
+    <li>Australian Curriculum, Assessment and Reporting Authority. (n.d.). <i>Media consumers and creators</i>. https://www.australiancurriculum.edu.au/curriculum-information/understand-this-curriculum-connection/media-consumers-and-creators</li>
+    <li>Australian Curriculum, Assessment and Reporting Authority. (2022). <i>The Arts: Media Arts curriculum content F-6 (Version 9.0)</i> [Curriculum document]. https://www.australiancurriculum.edu.au/content/dam/en/curriculum/ac-version-9/downloads/the-arts/media-arts/the-arts-media-arts-curriculum-content-f-6-v9.docx</li>
+    <li>Dezuanni, M. (2017). Media arts. In C. Sinclair, N. Jeanneret, &amp; J. O'Toole (Eds.), <i>Education in the arts</i> (3rd ed., pp. 128-142). Oxford University Press.</li>
+    <li>Dinham, J. (2023). <i>Delivering authentic arts education</i> (5th ed.). Cengage Learning Australia.</li>
   </ul>
   <p class="hint">the sample paragraph in the video shows roughly how much to write.</p>
 </section>
 
 </main>
+<script>
+// gallery: arrows between topics + side bar to jump to each topic
+(() => {
+  const gal = document.getElementById('gallery');
+  const figs = [...gal.querySelectorAll('figure.work')].map(f => ({ f, n: +(f.querySelector('.topic').textContent.match(/\d+/) || [0])[0] }));
+  const firsts = [];
+  figs.forEach((o, i) => {
+    if (!firsts.some(x => x.n === o.n)) { o.f.id = 'topic-' + o.n; firsts.push(o); }
+    const nx = figs[i + 1];
+    if (nx && nx.n !== o.n) {
+      const a = document.createElement('a');
+      a.className = 't-arrow'; a.href = '#topic-' + nx.n;
+      a.setAttribute('aria-label', 'Next: topic ' + nx.n);
+      a.innerHTML = '<b>|<br>|<br>v</b>topic ' + o.n + ' -&gt; ' + nx.n;
+      a.addEventListener('click', e => { e.preventDefault(); jump(nx.n); });
+      o.f.after(a);
+    }
+  });
+  function jump(n) {
+    const el = document.getElementById('topic-' + n);
+    if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
+  }
+  const nav = document.createElement('nav');
+  nav.id = 'topicnav'; nav.setAttribute('aria-label', 'Jump to topic');
+  nav.innerHTML = '<span class="lbl">topic</span>';
+  firsts.forEach(o => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = o.n; b.title = 'Jump to topic ' + o.n; b.dataset.n = o.n;
+    b.addEventListener('click', () => jump(o.n));
+    nav.appendChild(b);
+  });
+  document.body.appendChild(nav);
+  const sync = () => { nav.hidden = gal.hidden; };
+  new MutationObserver(sync).observe(gal, { attributes: true, attributeFilter: ['hidden'] });
+  sync();
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) nav.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.n === e.target.id.slice(6))); });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  firsts.forEach(o => io.observe(o.f));
+})();
+</script>
 <script>
 // walking gallery: hash routing, arrow-key walking, a different background effect per room
 (() => {
