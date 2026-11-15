@@ -489,6 +489,27 @@
     const el = document.getElementById('topic-' + n);
     if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
   }
+  // colour drifts from green through teal to blue (three neighbouring hues) as you move from topic 1 to topic 10
+  const STOPS = [150, 185, 220], root = document.documentElement.style;
+  const hsl = (h, s, l) => { s /= 100; l /= 100; const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l), f = n => l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1)); return [f(0), f(8), f(4)].map(v => Math.round(v * 255)); };
+  function tintAt(p) {
+    const x = Math.max(0, Math.min(1, p)) * (STOPS.length - 1), i = Math.min(STOPS.length - 2, Math.floor(x)), h = STOPS[i] + (STOPS[i + 1] - STOPS[i]) * (x - i);
+    root.setProperty('--fg', 'rgb(' + hsl(h, 100, 75) + ')'); root.setProperty('--hi', 'rgb(' + hsl(h, 100, 96) + ')'); root.setProperty('--dim', 'rgb(' + hsl(h, 39, 29) + ')');
+    if (window.setTint) setTint(hsl(h, 100, 75).join(','));
+  }
+  function resetTint() { ['--fg', '--hi', '--dim'].forEach(v => root.removeProperty(v)); if (window.setTint) setTint('125,255,178'); }
+  let tick = 0;
+  function colourByScroll() {
+    tick = 0;
+    if (gal.hidden) { resetTint(); return; }
+    const y = scrollY + innerHeight * .4, tops = firsts.map(o => o.f.getBoundingClientRect().top + scrollY);
+    let i = 0; while (i < tops.length - 1 && tops[i + 1] <= y) i++;
+    const end = i < tops.length - 1 ? tops[i + 1] : tops[i] + firsts[i].f.offsetHeight;
+    const frac = y < tops[0] ? 0 : Math.min(1, (y - tops[i]) / Math.max(1, end - tops[i]));
+    tintAt((i + frac) / (tops.length - 1));
+  }
+  addEventListener('scroll', () => { if (!tick) tick = requestAnimationFrame(colourByScroll); }, { passive: true });
+  addEventListener('resize', colourByScroll);
   const nav = document.createElement('nav');
   nav.id = 'topicnav'; nav.setAttribute('aria-label', 'Jump to topic');
   nav.innerHTML = '<span class="lbl">topic</span>';
@@ -499,7 +520,7 @@
     nav.appendChild(b);
   });
   document.body.appendChild(nav);
-  const sync = () => { nav.hidden = gal.hidden; };
+  const sync = () => { nav.hidden = gal.hidden; colourByScroll(); };
   new MutationObserver(sync).observe(gal, { attributes: true, attributeFilter: ['hidden'] });
   sync();
   const io = new IntersectionObserver(es => {
@@ -694,6 +715,7 @@
       }
     });
   }
+  let tint = '125,255,178'; window.setTint = t => { tint = t; };
   window.setBgMode = m => { mode = m; if (m === 'garden') gStart = performance.now(); };
 
   function frame(now) {
@@ -717,7 +739,7 @@
     else if (!lo) {
       for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
         const v = field(x, y, t); if (v < .04) continue;
-        ctx.fillStyle = `rgba(125,255,178,${.12 + v * .75})`;
+        ctx.fillStyle = `rgba(${tint},${.12 + v * .75})`;
         ctx.fillText(RAMP[Math.floor(v * (RAMP.length - 1))], x * CELL_W, y * CELL_H);
       }
     }
