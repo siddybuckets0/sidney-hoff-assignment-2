@@ -6,7 +6,7 @@
 <title>Sid's walking gallery</title>
 <meta name="description" content="A walking gallery of Sid's work this semester: gallery, photovoice, mind-map and Media Arts artefact.">
 <style>
-  :root { --bg:#0b0d0c; --fg:#7dffb2; --dim:#2f6b4a; --hi:#eafff2; }
+  :root { --bg:#0b0d0c; --fg:#7dffb2; --dim:#2f6b4a; --hi:#eafff2; --soft:#95c6ad; }
   * { box-sizing: border-box; }
   html, body { margin:0; height:100%; background:var(--bg); color:var(--fg);
     font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace; }
@@ -24,7 +24,7 @@
   li a:hover, li a:focus-visible { border-color:var(--fg); background:rgba(125,255,178,.08); color:var(--hi); outline:none; }
   li a span { color:var(--dim); }
   li a:hover span, li a:focus-visible span { color:var(--fg); }
-  .hint { color:var(--dim); font-size:.85rem; }
+  .hint { color:var(--soft); font-size:.9rem; }
   .cursor::after { content:"_"; animation: blink 1s steps(1) infinite; }
   @keyframes blink { 50% { opacity:0; } }
   @media (prefers-reduced-motion: reduce) { .cursor::after { animation:none; } }
@@ -41,7 +41,7 @@
   .walker.step { animation:walk .7s steps(2) 1; }
   @keyframes walk { 50% { margin-bottom:3px; } }
   #walk p { margin:6px 0 0; }
-  .room { background:rgba(11,13,12,.84); border:1px solid var(--dim); padding:16px 18px 10px; margin:0 0 18px; }
+  .room { background:rgba(11,13,12,.93); border:1px solid var(--dim); padding:16px 18px 10px; margin:0 0 18px; }
   .room h2 { font-size:1.15rem; }
   .room h3 { margin:18px 0 8px; font-size:.95rem; font-weight:normal; color:var(--fg); }
   .intro { color:var(--hi); }
@@ -55,7 +55,7 @@
   @keyframes tbob { 50% { transform:translateY(4px); } }
   @media (prefers-reduced-motion: reduce) { .t-arrow b { animation:none; } }
   #topicnav { position:fixed; right:8px; top:50%; transform:translateY(-50%); z-index:5; display:flex; flex-direction:column; gap:4px; padding:6px; background:rgba(11,13,12,.88); border:1px solid var(--dim); }
-  #topicnav .lbl { color:var(--dim); font-size:.7rem; text-align:center; }
+  #topicnav .lbl { color:var(--soft); font-size:.8rem; text-align:center; }
   #topicnav button { font:inherit; font-size:.8rem; color:var(--fg); background:transparent; border:1px solid var(--dim); padding:2px 8px; cursor:pointer; min-width:34px; }
   #topicnav button:hover, #topicnav button:focus-visible, #topicnav button.on { background:var(--fg); color:var(--bg); }
   @media (max-width:900px) { #topicnav { top:auto; bottom:8px; right:8px; left:8px; transform:none; flex-direction:row; flex-wrap:wrap; justify-content:center; } #topicnav .lbl { display:none; } }
@@ -64,29 +64,29 @@
   .frame.audio .play:hover, .frame.audio .play:focus-visible { background:var(--fg); color:var(--bg); }
   .frame.audio .bar { flex:1 1 140px; height:10px; border:1px solid var(--dim); cursor:pointer; }
   .frame.audio .bar i { display:block; height:100%; width:0; background:var(--fg); }
-  .frame.audio .time { color:var(--dim); font-size:.9rem; }
+  .frame.audio .time { color:var(--soft); font-size:.9rem; }
   .frame.empty { aspect-ratio:4/3; display:grid; place-items:center; }
   .frame.empty.wide { aspect-ratio:16/9; }
   .frame.empty img { display:none; }
-  .frame .ph { display:none; color:var(--dim); font-size:.8rem; text-align:center; padding:8px; }
+  .frame .ph { display:none; color:var(--soft); font-size:.8rem; text-align:center; padding:8px; }
   .frame.empty .ph { display:block; }
   figcaption b { color:var(--hi); font-weight:normal; }
-  .theory { color:var(--dim); font-size:.9rem; }
+  .theory { color:var(--soft); font-size:.9rem; }
   .quote { font-size:1.15rem; color:var(--hi); text-align:center; margin:6px 0; }
   ul.plain li { padding:4px 0; line-height:1.5; }
-  details.panel summary { cursor:pointer; color:var(--dim); }
+  details.panel summary { cursor:pointer; color:var(--soft); }
   details.panel[open] summary { margin-bottom:10px; }
   @media (max-width:640px) { figure.work { grid-template-columns:1fr; } #walk .stops { font-size:.85rem; } }
   .frame.multi { display:grid; gap:8px; }
   .frame video { display:block; width:100%; height:auto; background:#000; }
   figure.work { grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); }
-  .topic { color:var(--dim); border:1px solid var(--dim); padding:0 6px; margin-left:6px; font-size:.8rem; white-space:nowrap; }
+  .topic { color:var(--soft); border:1px solid var(--dim); padding:0 6px; margin-left:6px; font-size:.85rem; white-space:nowrap; }
   #photovoice .frame img { max-height:75vh; width:auto; max-width:100%; margin:0 auto; }
 
   .mm-detail { border:1px solid var(--c, var(--dim)); border-left-width:6px; padding:10px 14px; background:rgba(0,0,0,.35); min-height:7em; }
   .mm-detail h4 { margin:0 0 6px; color:var(--hi); font-weight:normal; }
   figure.art { margin:0 0 20px; max-width:680px; }
-  ul.refs li { padding:3px 0 3px 2em; text-indent:-2em; font-size:.9rem; line-height:1.45; color:var(--dim); }
+  ul.refs li { padding:3px 0 3px 2em; text-indent:-2em; font-size:.9rem; line-height:1.45; color:var(--soft); }
   .hs-wrap { position:relative; }
   .hs { position:absolute; transform:translate(-50%,-50%); font:inherit; font-size:clamp(11px,2vw,15px); line-height:1; padding:4px 5px; margin:0; cursor:pointer;
     background:var(--bg); color:var(--c); border:1px solid var(--c); box-shadow:0 0 8px var(--c); }
@@ -181,7 +181,7 @@
     <div class="frame"><img src="img/album-1.jpg" alt="Black-and-white paper collage with a red "Sports Coach" label, a skier and a volleyball" loading="lazy"></div>
     <figcaption>
       <b>Collage: album cover</b> <span class="topic">topic 6</span>
-      <p><b>Format and modality:</b> paper collage on dark card (media arts, print media). It is black and white with one red cut-out title, SPORTS COACH. I used a skier, a volleyball and torn newsprint. The red title is the only colour, so it is the first thing a viewer reads. The Media Arts artefact page breaks this piece down in full.</p>
+      <p><b>Format and modality:</b> paper collage on dark card (media arts, print media). It is black and white with one red cut-out title, SPORTS COACH. I used a skier, a volleyball and torn newsprint, all cut out from a sports magazine. The red title is the only colour, so it is the first thing a viewer reads. The Media Arts artefact page breaks this piece down in full.</p>
       <p class="theory">theory: Conlon Perugini (2015) used a picture-book cover to start a discussion, asking students what they could see, which colours the illustrator used and where the character lived. Students then redesigned the cover for a different country, which built intercultural competence. My cover works the same way: the viewer reads the image, colour and title first and forms expectations from them. In class, students could redesign an album cover for a different culture, after researching it.</p>
     </figcaption>
   </figure>
@@ -494,10 +494,10 @@
   const hsl = (h, s, l) => { s /= 100; l /= 100; const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l), f = n => l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1)); return [f(0), f(8), f(4)].map(v => Math.round(v * 255)); };
   function tintAt(p) {
     const x = Math.max(0, Math.min(1, p)) * (STOPS.length - 1), i = Math.min(STOPS.length - 2, Math.floor(x)), h = STOPS[i] + (STOPS[i + 1] - STOPS[i]) * (x - i);
-    root.setProperty('--fg', 'rgb(' + hsl(h, 100, 75) + ')'); root.setProperty('--hi', 'rgb(' + hsl(h, 100, 96) + ')'); root.setProperty('--dim', 'rgb(' + hsl(h, 39, 29) + ')');
+    root.setProperty('--fg', 'rgb(' + hsl(h, 100, 75) + ')'); root.setProperty('--hi', 'rgb(' + hsl(h, 100, 96) + ')'); root.setProperty('--dim', 'rgb(' + hsl(h, 39, 29) + ')'); root.setProperty('--soft', 'rgb(' + hsl(h, 30, 68) + ')');
     if (window.setTint) setTint(hsl(h, 100, 75).join(','));
   }
-  function resetTint() { ['--fg', '--hi', '--dim'].forEach(v => root.removeProperty(v)); if (window.setTint) setTint('125,255,178'); }
+  function resetTint() { ['--fg', '--hi', '--dim', '--soft'].forEach(v => root.removeProperty(v)); if (window.setTint) setTint('125,255,178'); }
   let tick = 0;
   function colourByScroll() {
     tick = 0;
